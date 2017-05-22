@@ -168,11 +168,13 @@ on enable-low-power
 
     # Set perfd properties
     setprop sys.post_boot.parsed 1
+    rm /data/system/perfd/default_values
+    start perfd
 
     # Starting io prefetcher service
     start iop
 
-    setprop sys.io.scheduler cfq
+    setprop sys.io.scheduler bfq
 
     # update cpusets now that boot is complete and we want better load balancing
     write /dev/cpuset/top-app/cpus 0-3

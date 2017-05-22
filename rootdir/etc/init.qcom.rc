@@ -357,6 +357,8 @@ service perfd /system/vendor/bin/perfd
    class main
    user root
    group root readproc
+   group root system readproc
+   socket perfd seqpacket 0666 root system
    disabled
    socket perfd seqpacket 0666 root system
    writepid /dev/cpuset/system-background/tasks
